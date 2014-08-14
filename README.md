@@ -19,11 +19,11 @@ Use make. I am not going to use autotools on a project this small.
 
 ## Usage
 
-	\# Optional: Specify an exact version of libsqlite3
-	export SQLITE3\_LIBRARY=[/path/to/]libsqlite3.so.0
+	# Optional: Specify an exact version of libsqlite3
+	export SQLITE3_LIBRARY=[/path/to/]libsqlite3.so.0
 
-	export LD\_PRELOAD=/path/to/sqlite3-preload.so
-	export SQLITE3\_INIT\_SQL=/path/to/sqlite3.sql
+	export LD_PRELOAD=/path/to/sqlite3-preload.so
+	export SQLITE3_INIT_SQL=/path/to/sqlite3.sql
 	exec /path/to/program-using-sqlite3
 
 When your program calls *sqlite3\_open()*, *sqlite3\_open16()*,

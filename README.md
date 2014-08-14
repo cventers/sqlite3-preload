@@ -19,7 +19,7 @@ Use make. I am not going to use autotools on a project this small.
 
 ## Usage
 
-# Optional: Specify an exact version of libsqlite3
+\# Optional: Specify an exact version of libsqlite3
 export SQLITE3\_LIBRARY=[/path/to/]libsqlite3.so.0
 
 export LD\_PRELOAD=/path/to/sqlite3-preload.so

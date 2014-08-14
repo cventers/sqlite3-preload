@@ -27,7 +27,6 @@ int (*orig_sqlite3_open) (const char *filename, sqlite3 **ppDb);
 static
 int (*orig_sqlite3_open16) (const char *filename, sqlite3 **ppDb);
 
-
 static
 int (*orig_sqlite3_open_v2) (const char *filename, sqlite3 **ppDb, int flags,
 	const char *zVfs);
@@ -228,6 +227,7 @@ sqlite3_open (
 	/* execute command */
 	if (cmdbuf) {
 		ret = orig_sqlite3_exec(*ppDb, cmdbuf, 0, 0, &err);
+		free(cmdbuf);
 		if (ret != 0) {
 			fprintf(stderr, "sqlite3_open error: %s\n", err);
 			orig_sqlite3_free(err);
@@ -265,6 +265,7 @@ int sqlite3_open16 (
 	/* execute command */
 	if (cmdbuf) {
 		ret = orig_sqlite3_exec(*ppDb, cmdbuf, 0, 0, &err);
+		free(cmdbuf);
 		if (ret != 0) {
 			fprintf(stderr, "sqlite3_open error: %s\n", err);
 			orig_sqlite3_free(err);
@@ -304,6 +305,7 @@ int sqlite3_open_v2 (
 	/* execute command */
 	if (cmdbuf) {
 		ret = orig_sqlite3_exec(*ppDb, cmdbuf, 0, 0, &err);
+		free(cmdbuf);
 		if (ret != 0) {
 			fprintf(stderr, "sqlite3_open error: %s\n", err);
 			orig_sqlite3_free(err);
@@ -317,3 +319,4 @@ int sqlite3_open_v2 (
 }
 
 /* ======================================================================== */
+
